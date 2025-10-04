@@ -1,6 +1,9 @@
 import React from "react";
 import { motion } from "framer-motion";
 import Footer from "./Footer.jsx";
+import trafficLightGif from "../assets/trafficlightrl.gif";
+import justTheInstructionsImg from "../assets/justtheinstructions.jpg";
+import ocularGif from "../assets/ocular.gif";
 
 const Projects = ({ currentSection, setCurrentSection }) => {
   const [isMobile, setIsMobile] = React.useState(window.innerWidth <= 768);
@@ -43,7 +46,7 @@ const Projects = ({ currentSection, setCurrentSection }) => {
       github: "https://github.com/McMasterAI2024-2025/TrafficLightRL",
       researchPaper:
         "https://drive.google.com/file/d/19SGuZadoFl0zRNdO8E5Pmin_YlY_-vWb/view?usp=sharing",
-      image: "/src/assets/trafficlightrl.gif",
+      image: trafficLightGif,
       description:
         "Led a 5-person team to develop a reinforcement learning agent that reduced CO2 emissions by 12% and idling times by 26% using SUMO and Stable-Baselines3. Presented as keynote speaker at CUCAI 2025 (300+ attendees) and co-authored research paper detailing smart-city applications.",
       highlights: [
@@ -67,7 +70,7 @@ const Projects = ({ currentSection, setCurrentSection }) => {
       chromeStore:
         "https://chromewebstore.google.com/detail/lfoilkbebjommkenfehehofgoiopmenn?utm_source=item-share-cb",
       github: "https://github.com/kristiandiana/JustTheInstructions",
-      image: "/src/assets/justtheinstructions.jpg",
+      image: justTheInstructionsImg,
       description:
         "Shipped a Chrome Extension that extracts step-by-step instructions from recipes and tutorials using a fully client-side ONNX model, delivering sub-500ms inference via a lightweight 2.5MB architecture. Engineered web scraping pipeline to curate 1M+ instructional sentences.",
       highlights: [
@@ -90,7 +93,7 @@ const Projects = ({ currentSection, setCurrentSection }) => {
     {
       title: "Ocular Disease Identifier",
       github: "https://github.com/DSC-McMaster-U/Ocular-Disease-Identifier",
-      image: "/src/assets/ocular.gif",
+      image: ocularGif,
       description:
         "As Team Lead of McMaster's Google Developers Student Club, I hired and led a 10-person development team to build a full-stack ML web app, driving delivery through Scrum-based sprints, GitHub issue tracking, and setting up scalable infrastructure with CI/CD pipelines.",
       highlights: [
@@ -177,7 +180,7 @@ const Projects = ({ currentSection, setCurrentSection }) => {
           padding: "0 20px",
         }}
       >
-        {/* Header */}
+        {/* Personal Projects Section */}
         <motion.div
           variants={projectVariants}
           style={{
@@ -197,7 +200,7 @@ const Projects = ({ currentSection, setCurrentSection }) => {
               textShadow: "0 2px 10px rgba(0, 0, 0, 0.3)",
             }}
           >
-            Featured Projects
+            Personal Projects
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -210,11 +213,11 @@ const Projects = ({ currentSection, setCurrentSection }) => {
               margin: "0 auto",
             }}
           >
-            Showcasing technical leadership and impactful solutions
+            Demonstrating skills gained through independent research and
+            projects.
           </motion.p>
         </motion.div>
 
-        {/* Projects Grid */}
         <motion.div
           variants={containerVariants}
           style={{
@@ -278,7 +281,7 @@ const Projects = ({ currentSection, setCurrentSection }) => {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: 0.4 + index * 0.1 }}
                 style={{
-                  order: project.image ? 2 : 1, // Content second on mobile if image exists
+                  order: project.image && isMobile ? 2 : 1, // Content second on mobile if image exists
                 }}
               >
                 <motion.h2
@@ -309,7 +312,6 @@ const Projects = ({ currentSection, setCurrentSection }) => {
                   {project.description}
                 </motion.p>
 
-                {/* Highlights */}
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -332,6 +334,7 @@ const Projects = ({ currentSection, setCurrentSection }) => {
                       color: "#666",
                       paddingLeft: "20px",
                       margin: 0,
+                      lineHeight: "1.5",
                     }}
                   >
                     {project.highlights.map((highlight, idx) => (
@@ -342,7 +345,6 @@ const Projects = ({ currentSection, setCurrentSection }) => {
                   </ul>
                 </motion.div>
 
-                {/* Technologies */}
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -375,11 +377,7 @@ const Projects = ({ currentSection, setCurrentSection }) => {
                   </div>
                 </motion.div>
 
-                {/* Links */}
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.9 + index * 0.1 }}
+                <div
                   style={{
                     display: "flex",
                     gap: "15px",
@@ -446,7 +444,7 @@ const Projects = ({ currentSection, setCurrentSection }) => {
                         viewBox="0 0 24 24"
                         fill="currentColor"
                       >
-                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+                        <path d="M6.002 1.61L0 12.004L6.002 22.39h11.996L24 12.004L17.998 1.61zm1.593 4.084h3.947c3.605 0 6.276 1.695 6.276 6.31c0 4.436-3.21 6.302-6.456 6.302H7.595zm2.517 2.449v7.714h1.241c2.646 0 3.862-1.55 3.862-3.861c.009-2.569-1.096-3.853-3.767-3.853Z" />
                       </svg>
                       Devpost
                     </motion.a>
@@ -460,7 +458,7 @@ const Projects = ({ currentSection, setCurrentSection }) => {
                       whileHover={{ scale: 1.05, y: -2 }}
                       whileTap={{ scale: 0.95 }}
                       style={{
-                        background: "linear-gradient(135deg, #ea4335, #fbbc04)",
+                        background: "linear-gradient(135deg, #667eea, #8B5CF6)",
                         color: "white",
                         padding: "10px 20px",
                         borderRadius: "25px",
@@ -470,7 +468,7 @@ const Projects = ({ currentSection, setCurrentSection }) => {
                         display: "flex",
                         alignItems: "center",
                         gap: "8px",
-                        boxShadow: "0 4px 15px rgba(234, 67, 53, 0.3)",
+                        boxShadow: "0 4px 15px rgba(99, 102, 241, 0.3)",
                       }}
                     >
                       <svg
@@ -485,37 +483,39 @@ const Projects = ({ currentSection, setCurrentSection }) => {
                     </motion.a>
                   )}
 
-                  <motion.a
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    whileHover={{ scale: 1.05, y: -2 }}
-                    whileTap={{ scale: 0.95 }}
-                    style={{
-                      background: "linear-gradient(135deg, #333, #666)",
-                      color: "white",
-                      padding: "10px 20px",
-                      borderRadius: "25px",
-                      textDecoration: "none",
-                      fontSize: "0.9rem",
-                      fontWeight: "600",
-                      display: "flex",
-                      alignItems: "center",
-                      gap: "8px",
-                      boxShadow: "0 4px 15px rgba(0, 0, 0, 0.2)",
-                    }}
-                  >
-                    <svg
-                      width="16"
-                      height="16"
-                      viewBox="0 0 24 24"
-                      fill="currentColor"
+                  {project.github && (
+                    <motion.a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      whileHover={{ scale: 1.05, y: -2 }}
+                      whileTap={{ scale: 0.95 }}
+                      style={{
+                        background: "linear-gradient(135deg, #333, #666)",
+                        color: "white",
+                        padding: "10px 20px",
+                        borderRadius: "25px",
+                        textDecoration: "none",
+                        fontSize: "0.9rem",
+                        fontWeight: "600",
+                        display: "flex",
+                        alignItems: "center",
+                        gap: "8px",
+                        boxShadow: "0 4px 15px rgba(0, 0, 0, 0.3)",
+                      }}
                     >
-                      <path d="M12,2A10,10 0 0,0 2,12C2,16.42 4.87,20.17 8.84,21.5C9.34,21.58 9.5,21.27 9.5,21C9.5,20.77 9.5,20.14 9.5,19.31C6.73,19.91 6.14,17.97 6.14,17.97C5.68,16.81 5.03,16.5 5.03,16.5C4.12,15.88 5.1,15.9 5.1,15.9C6.1,15.97 6.63,16.93 6.63,16.93C7.5,18.45 8.97,18 9.54,17.76C9.63,17.11 9.89,16.67 10.17,16.42C7.95,16.17 5.62,15.31 5.62,11.5C5.62,10.39 6,9.5 6.65,8.79C6.55,8.54 6.2,7.5 6.75,6.15C6.75,6.15 7.59,5.88 9.5,7.17C10.29,6.95 11.15,6.84 12,6.84C12.85,6.84 13.71,6.95 14.5,7.17C16.41,5.88 17.25,6.15 17.25,6.15C17.8,7.5 17.45,8.54 17.35,8.79C18,9.5 18.38,10.39 18.38,11.5C18.38,15.32 16.04,16.16 13.81,16.41C14.17,16.72 14.5,17.33 14.5,18.26C14.5,19.6 14.5,20.68 14.5,21C14.5,21.27 14.66,21.59 15.17,21.5C19.14,20.16 22,16.42 22,12A10,10 0 0,0 12,2Z" />
-                    </svg>
-                    GitHub
-                  </motion.a>
-                </motion.div>
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 24 24"
+                        fill="currentColor"
+                      >
+                        <path d="M12,2A10,10 0 0,0 2,12C2,16.42 4.87,20.17 8.84,21.5C9.34,21.58 9.5,21.27 9.5,21C9.5,20.77 9.5,20.14 9.5,19.31C6.73,19.91 6.14,17.97 6.14,17.97C5.68,16.81 5.03,16.5 5.03,16.5C4.12,15.88 5.1,15.9 5.1,15.9C6.1,15.97 6.63,16.93 6.63,16.93C7.5,18.45 8.97,18 9.54,17.76C9.63,17.11 9.89,16.67 10.17,16.42C7.95,16.17 5.62,15.31 5.62,11.5C5.62,10.39 6,9.5 6.65,8.79C6.55,8.54 6.2,7.5 6.75,6.15C6.75,6.15 7.59,5.88 9.5,7.17C10.29,6.95 11.15,6.84 12,6.84C12.85,6.84 13.71,6.95 14.5,7.17C16.41,5.88 17.25,6.15 17.25,6.15C17.8,7.5 17.45,8.54 17.35,8.79C18,9.5 18.38,10.39 18.38,11.5C18.38,15.32 16.04,16.16 13.81,16.41C14.17,16.72 14.5,17.33 14.5,18.26C14.5,19.6 14.5,20.68 14.5,21C14.5,21.27 14.66,21.59 15.17,21.5C19.14,20.16 22,16.42 22,12A10,10 0 0,0 12,2Z" />
+                      </svg>
+                      GitHub
+                    </motion.a>
+                  )}
+                </div>
               </motion.div>
             </motion.div>
           ))}
