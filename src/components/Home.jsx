@@ -101,7 +101,6 @@ const Home = ({ currentSection, setCurrentSection }) => {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        padding: isMobile ? "5px" : "20px", // Much less padding on mobile
       }}
     >
       <motion.div
@@ -115,7 +114,8 @@ const Home = ({ currentSection, setCurrentSection }) => {
           display: "grid",
           gridTemplateColumns: "repeat(4, 1fr)",
           gridTemplateRows: "repeat(4, 1fr)",
-          gap: isMobile ? "8px" : "20px", // Much smaller gap on mobile
+          gap: isMobile ? "4px" : "20px", // Even smaller gap on mobile
+          padding: isMobile ? "8px" : "20px", // Add padding to the grid container instead
         }}
       >
         {/* Corner Buttons */}
@@ -147,7 +147,7 @@ const Home = ({ currentSection, setCurrentSection }) => {
                 backdropFilter: "blur(20px)",
                 border: `2px solid ${corner.color}20`, // Subtle colored border
                 transition: "all 0.3s ease",
-                padding: isMobile ? "10px" : "20px", // Much less padding on mobile
+                padding: isMobile ? "8px" : "20px", // Even less padding on mobile
               }}
             >
               <motion.div
@@ -155,7 +155,7 @@ const Home = ({ currentSection, setCurrentSection }) => {
                 animate={{ scale: 1, rotate: 0 }}
                 transition={{ delay: 0.5 + index * 0.1, duration: 1.0 }} // Slower icon animation
                 style={{
-                  fontSize: isMobile ? "2.5rem" : "4rem", // Much smaller icons on mobile
+                  fontSize: isMobile ? "2rem" : "4rem", // Even smaller icons on mobile
                   color: corner.color,
                   marginBottom: "10px", // Less margin
                   filter: "drop-shadow(0 4px 8px rgba(0, 0, 0, 0.15))",
@@ -169,7 +169,7 @@ const Home = ({ currentSection, setCurrentSection }) => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.7 + index * 0.1, duration: 0.8 }} // Slower text animation
                 style={{
-                  fontSize: "clamp(1rem, 2.5vw, 2.5rem)", // Smaller text on mobile
+                  fontSize: isMobile ? "1rem" : "clamp(1rem, 2.5vw, 2.5rem)", // Even smaller text on mobile
                   fontWeight: "700",
                   color: "#374151", // Dark gray instead of black
                   margin: 0,
@@ -201,7 +201,7 @@ const Home = ({ currentSection, setCurrentSection }) => {
             gridArea: "2 / 1 / 4 / 5", // Back to spanning 2 rows (top to bottom buttons)
             background: "rgba(255, 255, 255, 0.7)",
             borderRadius: "30px",
-            padding: isMobile ? "15px 10px" : "30px 25px", // Much less padding on mobile
+            padding: isMobile ? "10px 8px" : "30px 25px", // Even less padding on mobile
             backdropFilter: "blur(30px)",
             border: "2px solid rgba(148, 163, 184, 0.3)", // Subtle gray border
             boxShadow: "0 20px 60px rgba(0, 0, 0, 0.1)",
@@ -217,10 +217,10 @@ const Home = ({ currentSection, setCurrentSection }) => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.2, delay: 0.8 }} // Slower title animation
             style={{
-              fontSize: "clamp(1.8rem, 4vw, 3.5rem)", // Increased to match button text
+              fontSize: isMobile ? "1.5rem" : "clamp(1.8rem, 4vw, 3.5rem)", // Smaller on mobile
               fontWeight: "800",
               color: "#1F2937", // Dark gray
-              marginBottom: "20px", // More margin
+              marginBottom: isMobile ? "10px" : "20px", // Less margin on mobile
               textShadow: "0 2px 10px rgba(0, 0, 0, 0.1)",
             }}
           >
@@ -232,14 +232,14 @@ const Home = ({ currentSection, setCurrentSection }) => {
             animate={{ opacity: 1 }}
             transition={{ duration: 1.2, delay: 1.2 }} // Slower typewriter animation
             style={{
-              fontSize: "clamp(1.2rem, 3vw, 2rem)", // Increased to match button text
+              fontSize: isMobile ? "1rem" : "clamp(1.2rem, 3vw, 2rem)", // Smaller on mobile
               color: "#4B5563", // Medium gray
               display: "flex",
               justifyContent: "center",
               alignItems: "center",
               flexWrap: "wrap",
               gap: "8px",
-              marginBottom: "15px", // More margin
+              marginBottom: isMobile ? "8px" : "15px", // Less margin on mobile
             }}
           >
             <span>Welcome</span>
@@ -260,7 +260,7 @@ const Home = ({ currentSection, setCurrentSection }) => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.2, delay: 1.5 }} // Slower description animation
             style={{
-              fontSize: "clamp(1rem, 2vw, 1.2rem)", // Increased to be more readable
+              fontSize: isMobile ? "0.9rem" : "clamp(1rem, 2vw, 1.2rem)", // Smaller on mobile
               color: "#6B7280", // Light gray
               maxWidth: "600px",
               lineHeight: "1.5", // Better line height
