@@ -1,12 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Typewriter } from "react-simple-typewriter";
-import {
-  Person,
-  CodeSlash,
-  Link45deg,
-  Mortarboard,
-} from "react-bootstrap-icons";
+import { Person, CodeSlash, Link45deg, Briefcase } from "react-bootstrap-icons";
 
 const Home = ({ currentSection, setCurrentSection }) => {
   const [isMobile, setIsMobile] = React.useState(window.innerWidth <= 768);
@@ -87,7 +82,7 @@ const Home = ({ currentSection, setCurrentSection }) => {
     {
       id: "experience", // Changed from education
       label: "Experience", // Changed from Education
-      icon: Mortarboard,
+      icon: Briefcase, // Changed from Mortarboard to Briefcase
       color: "#06B6D4", // Cyan - represents knowledge, growth
       accentColor: "#0891B2", // Darker cyan
       gridArea: "4 / 3 / 5 / 5", // Bottom row, spans 2 columns
@@ -106,7 +101,7 @@ const Home = ({ currentSection, setCurrentSection }) => {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        padding: isMobile ? "10px" : "20px", // Less padding on mobile
+        padding: isMobile ? "5px" : "20px", // Much less padding on mobile
       }}
     >
       <motion.div
@@ -120,7 +115,7 @@ const Home = ({ currentSection, setCurrentSection }) => {
           display: "grid",
           gridTemplateColumns: "repeat(4, 1fr)",
           gridTemplateRows: "repeat(4, 1fr)",
-          gap: isMobile ? "10px" : "20px", // Smaller gap on mobile
+          gap: isMobile ? "8px" : "20px", // Much smaller gap on mobile
         }}
       >
         {/* Corner Buttons */}
@@ -152,7 +147,7 @@ const Home = ({ currentSection, setCurrentSection }) => {
                 backdropFilter: "blur(20px)",
                 border: `2px solid ${corner.color}20`, // Subtle colored border
                 transition: "all 0.3s ease",
-                padding: isMobile ? "15px" : "20px", // Less padding on mobile
+                padding: isMobile ? "10px" : "20px", // Much less padding on mobile
               }}
             >
               <motion.div
@@ -160,9 +155,9 @@ const Home = ({ currentSection, setCurrentSection }) => {
                 animate={{ scale: 1, rotate: 0 }}
                 transition={{ delay: 0.5 + index * 0.1, duration: 1.0 }} // Slower icon animation
                 style={{
-                  fontSize: isMobile ? "3rem" : "4rem", // Smaller icons on mobile
+                  fontSize: isMobile ? "2.5rem" : "4rem", // Much smaller icons on mobile
                   color: corner.color,
-                  marginBottom: "15px",
+                  marginBottom: "10px", // Less margin
                   filter: "drop-shadow(0 4px 8px rgba(0, 0, 0, 0.15))",
                 }}
               >
@@ -174,7 +169,7 @@ const Home = ({ currentSection, setCurrentSection }) => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.7 + index * 0.1, duration: 0.8 }} // Slower text animation
                 style={{
-                  fontSize: "clamp(1.2rem, 3vw, 2.5rem)", // Smaller text on mobile
+                  fontSize: "clamp(1rem, 2.5vw, 2.5rem)", // Smaller text on mobile
                   fontWeight: "700",
                   color: "#374151", // Dark gray instead of black
                   margin: 0,
@@ -199,14 +194,14 @@ const Home = ({ currentSection, setCurrentSection }) => {
           );
         })}
 
-        {/* Central Hero Section */}
+        {/* Central Hero Section - Back to full height but more compact */}
         <motion.div
           variants={heroVariants}
           style={{
-            gridArea: "2 / 1 / 4 / 5", // Centered, spans all 4 columns
+            gridArea: "2 / 1 / 4 / 5", // Back to spanning 2 rows (top to bottom buttons)
             background: "rgba(255, 255, 255, 0.7)",
             borderRadius: "30px",
-            padding: isMobile ? "30px 20px" : "40px", // Less padding on mobile
+            padding: isMobile ? "15px 10px" : "30px 25px", // Much less padding on mobile
             backdropFilter: "blur(30px)",
             border: "2px solid rgba(148, 163, 184, 0.3)", // Subtle gray border
             boxShadow: "0 20px 60px rgba(0, 0, 0, 0.1)",
@@ -222,10 +217,10 @@ const Home = ({ currentSection, setCurrentSection }) => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.2, delay: 0.8 }} // Slower title animation
             style={{
-              fontSize: "clamp(2rem, 5vw, 4rem)", // Smaller on mobile
+              fontSize: "clamp(1.8rem, 4vw, 3.5rem)", // Increased to match button text
               fontWeight: "800",
               color: "#1F2937", // Dark gray
-              marginBottom: "30px",
+              marginBottom: "20px", // More margin
               textShadow: "0 2px 10px rgba(0, 0, 0, 0.1)",
             }}
           >
@@ -237,14 +232,14 @@ const Home = ({ currentSection, setCurrentSection }) => {
             animate={{ opacity: 1 }}
             transition={{ duration: 1.2, delay: 1.2 }} // Slower typewriter animation
             style={{
-              fontSize: "clamp(1rem, 3vw, 2rem)", // Smaller on mobile
+              fontSize: "clamp(1.2rem, 3vw, 2rem)", // Increased to match button text
               color: "#4B5563", // Medium gray
               display: "flex",
               justifyContent: "center",
               alignItems: "center",
               flexWrap: "wrap",
               gap: "8px",
-              marginBottom: "20px",
+              marginBottom: "15px", // More margin
             }}
           >
             <span>Welcome</span>
@@ -265,10 +260,10 @@ const Home = ({ currentSection, setCurrentSection }) => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.2, delay: 1.5 }} // Slower description animation
             style={{
-              fontSize: "clamp(0.8rem, 2vw, 1.1rem)", // Smaller on mobile
+              fontSize: "clamp(1rem, 2vw, 1.2rem)", // Increased to be more readable
               color: "#6B7280", // Light gray
               maxWidth: "600px",
-              lineHeight: "1.6",
+              lineHeight: "1.5", // Better line height
               margin: 0,
             }}
           >
