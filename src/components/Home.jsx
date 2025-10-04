@@ -5,11 +5,19 @@ import { Person, CodeSlash, Link45deg, Briefcase } from "react-bootstrap-icons";
 
 const Home = ({ currentSection, setCurrentSection }) => {
   const [isMobile, setIsMobile] = React.useState(window.innerWidth <= 768);
+  const [viewportHeight, setViewportHeight] = React.useState(
+    window.innerHeight
+  );
 
   React.useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth <= 768);
+      setViewportHeight(window.innerHeight);
     };
+
+    // Set initial viewport height
+    setViewportHeight(window.innerHeight);
+
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
@@ -93,7 +101,7 @@ const Home = ({ currentSection, setCurrentSection }) => {
     <div
       style={{
         width: "100vw",
-        height: "100vh",
+        height: `${viewportHeight}px`, // Use actual viewport height
         position: "relative",
         overflow: "hidden",
         background:
