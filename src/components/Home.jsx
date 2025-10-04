@@ -9,6 +9,16 @@ import {
 } from "react-bootstrap-icons";
 
 const Home = ({ currentSection, setCurrentSection }) => {
+  const [isMobile, setIsMobile] = React.useState(window.innerWidth <= 768);
+
+  React.useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -27,7 +37,7 @@ const Home = ({ currentSection, setCurrentSection }) => {
       scale: 1,
       y: 0,
       transition: {
-        duration: 0.8,
+        duration: 1.2, // Slower transitions
         ease: [0.25, 0.46, 0.45, 0.94],
         type: "spring",
         stiffness: 100,
@@ -42,7 +52,7 @@ const Home = ({ currentSection, setCurrentSection }) => {
       opacity: 1,
       scale: 1,
       transition: {
-        duration: 1.2,
+        duration: 1.6, // Slower hero animation
         ease: "easeOut",
         delay: 0.5,
       },
@@ -75,8 +85,8 @@ const Home = ({ currentSection, setCurrentSection }) => {
       gridArea: "4 / 1 / 5 / 3", // Bottom row, spans 2 columns
     },
     {
-      id: "experience",
-      label: "Experience",
+      id: "experience", // Changed from education
+      label: "Experience", // Changed from Education
       icon: Mortarboard,
       color: "#06B6D4", // Cyan - represents knowledge, growth
       accentColor: "#0891B2", // Darker cyan
@@ -96,7 +106,7 @@ const Home = ({ currentSection, setCurrentSection }) => {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        padding: "20px",
+        padding: isMobile ? "10px" : "20px", // Less padding on mobile
       }}
     >
       <motion.div
@@ -110,7 +120,7 @@ const Home = ({ currentSection, setCurrentSection }) => {
           display: "grid",
           gridTemplateColumns: "repeat(4, 1fr)",
           gridTemplateRows: "repeat(4, 1fr)",
-          gap: "20px",
+          gap: isMobile ? "10px" : "20px", // Smaller gap on mobile
         }}
       >
         {/* Corner Buttons */}
@@ -142,15 +152,15 @@ const Home = ({ currentSection, setCurrentSection }) => {
                 backdropFilter: "blur(20px)",
                 border: `2px solid ${corner.color}20`, // Subtle colored border
                 transition: "all 0.3s ease",
-                padding: "20px",
+                padding: isMobile ? "15px" : "20px", // Less padding on mobile
               }}
             >
               <motion.div
                 initial={{ scale: 0, rotate: -180 }}
                 animate={{ scale: 1, rotate: 0 }}
-                transition={{ delay: 0.5 + index * 0.1, duration: 0.8 }}
+                transition={{ delay: 0.5 + index * 0.1, duration: 1.0 }} // Slower icon animation
                 style={{
-                  fontSize: "4rem",
+                  fontSize: isMobile ? "3rem" : "4rem", // Smaller icons on mobile
                   color: corner.color,
                   marginBottom: "15px",
                   filter: "drop-shadow(0 4px 8px rgba(0, 0, 0, 0.15))",
@@ -162,9 +172,9 @@ const Home = ({ currentSection, setCurrentSection }) => {
               <motion.h2
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.7 + index * 0.1, duration: 0.6 }}
+                transition={{ delay: 0.7 + index * 0.1, duration: 0.8 }} // Slower text animation
                 style={{
-                  fontSize: "clamp(1.5rem, 3vw, 2.5rem)",
+                  fontSize: "clamp(1.2rem, 3vw, 2.5rem)", // Smaller text on mobile
                   fontWeight: "700",
                   color: "#374151", // Dark gray instead of black
                   margin: 0,
@@ -177,7 +187,7 @@ const Home = ({ currentSection, setCurrentSection }) => {
               <motion.div
                 initial={{ width: 0 }}
                 animate={{ width: "60px" }}
-                transition={{ delay: 0.9 + index * 0.1, duration: 0.8 }}
+                transition={{ delay: 0.9 + index * 0.1, duration: 1.0 }} // Slower underline animation
                 style={{
                   height: "3px",
                   background: `linear-gradient(90deg, ${corner.color}, ${corner.accentColor})`,
@@ -189,14 +199,14 @@ const Home = ({ currentSection, setCurrentSection }) => {
           );
         })}
 
-        {/* Hero Section - Center */}
+        {/* Central Hero Section */}
         <motion.div
           variants={heroVariants}
           style={{
-            gridArea: "2 / 1 / 4 / 5", // Middle two rows, spans all columns
+            gridArea: "2 / 1 / 4 / 5", // Centered, spans all 4 columns
             background: "rgba(255, 255, 255, 0.7)",
             borderRadius: "30px",
-            padding: "40px",
+            padding: isMobile ? "30px 20px" : "40px", // Less padding on mobile
             backdropFilter: "blur(30px)",
             border: "2px solid rgba(148, 163, 184, 0.3)", // Subtle gray border
             boxShadow: "0 20px 60px rgba(0, 0, 0, 0.1)",
@@ -210,9 +220,9 @@ const Home = ({ currentSection, setCurrentSection }) => {
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.8 }}
+            transition={{ duration: 1.2, delay: 0.8 }} // Slower title animation
             style={{
-              fontSize: "clamp(2.5rem, 5vw, 4rem)",
+              fontSize: "clamp(2rem, 5vw, 4rem)", // Smaller on mobile
               fontWeight: "800",
               color: "#1F2937", // Dark gray
               marginBottom: "30px",
@@ -225,9 +235,9 @@ const Home = ({ currentSection, setCurrentSection }) => {
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 1, delay: 1.2 }}
+            transition={{ duration: 1.2, delay: 1.2 }} // Slower typewriter animation
             style={{
-              fontSize: "clamp(1.2rem, 3vw, 2rem)",
+              fontSize: "clamp(1rem, 3vw, 2rem)", // Smaller on mobile
               color: "#4B5563", // Medium gray
               display: "flex",
               justifyContent: "center",
@@ -253,51 +263,19 @@ const Home = ({ currentSection, setCurrentSection }) => {
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1.5 }}
+            transition={{ duration: 1.2, delay: 1.5 }} // Slower description animation
             style={{
-              fontSize: "1.1rem",
+              fontSize: "clamp(0.8rem, 2vw, 1.1rem)", // Smaller on mobile
               color: "#6B7280", // Light gray
+              maxWidth: "600px",
               lineHeight: "1.6",
               margin: 0,
-              maxWidth: "600px",
             }}
           >
-            Click any corner to dive into different realms of my portfolio
+            Explore my projects, experience, and skills through the interactive
+            corners of this portfolio.
           </motion.p>
         </motion.div>
-
-        {/* Subtle Background Elements */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0 }}
-          animate={{ opacity: 0.05, scale: 1 }}
-          transition={{ delay: 2, duration: 2 }}
-          style={{
-            position: "absolute",
-            top: "10%",
-            right: "10%",
-            width: "200px",
-            height: "200px",
-            background: "linear-gradient(45deg, #E2E8F0, #CBD5E1)",
-            borderRadius: "50%",
-            zIndex: -1,
-          }}
-        />
-
-        <motion.div
-          initial={{ opacity: 0, scale: 0 }}
-          animate={{ opacity: 0.05, scale: 1 }}
-          transition={{ delay: 2.5, duration: 2 }}
-          style={{
-            position: "absolute",
-            bottom: "10%",
-            left: "10%",
-            width: "150px",
-            height: "150px",
-            background: "linear-gradient(45deg, #F1F5F9, #E2E8F0)",
-            borderRadius: "50%",
-            zIndex: -1,
-          }}
-        />
       </motion.div>
     </div>
   );

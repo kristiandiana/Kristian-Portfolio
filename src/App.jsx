@@ -39,14 +39,14 @@ const App = () => {
             opacity: 1,
             zIndex: 2,
             transition: {
-              duration: 0.8,
+              duration: 1.2, // Slower transitions
               ease: [0.25, 0.46, 0.45, 0.94],
             },
           },
           exit: {
             opacity: 0,
             transition: {
-              duration: 0.3, // Much faster exit
+              duration: 0.6, // Slower exit
               ease: [0.25, 0.46, 0.45, 0.94],
             },
           },
@@ -64,14 +64,14 @@ const App = () => {
             opacity: 1,
             zIndex: 2,
             transition: {
-              duration: 0.8,
+              duration: 1.2, // Slower transitions
               ease: [0.25, 0.46, 0.45, 0.94],
             },
           },
           exit: {
             opacity: 0,
             transition: {
-              duration: 0.3, // Much faster exit
+              duration: 0.6, // Slower exit
               ease: [0.25, 0.46, 0.45, 0.94],
             },
           },
@@ -89,20 +89,20 @@ const App = () => {
             opacity: 1,
             zIndex: 2,
             transition: {
-              duration: 0.8,
+              duration: 1.2, // Slower transitions
               ease: [0.25, 0.46, 0.45, 0.94],
             },
           },
           exit: {
             opacity: 0,
             transition: {
-              duration: 0.3, // Much faster exit
+              duration: 0.6, // Slower exit
               ease: [0.25, 0.46, 0.45, 0.94],
             },
           },
         };
 
-      case "experience":
+      case "experience": // Changed from education
         return {
           initial: {
             clipPath: "polygon(100% 100%, 100% 100%, 100% 100%, 100% 100%)", // Start from bottom-right
@@ -114,14 +114,14 @@ const App = () => {
             opacity: 1,
             zIndex: 2,
             transition: {
-              duration: 0.8,
+              duration: 1.2, // Slower transitions
               ease: [0.25, 0.46, 0.45, 0.94],
             },
           },
           exit: {
             opacity: 0,
             transition: {
-              duration: 0.3, // Much faster exit
+              duration: 0.6, // Slower exit
               ease: [0.25, 0.46, 0.45, 0.94],
             },
           },
@@ -140,14 +140,14 @@ const App = () => {
             opacity: 1,
             zIndex: 1,
             transition: {
-              duration: 0.8,
+              duration: 1.2, // Slower transitions
               ease: [0.25, 0.46, 0.45, 0.94],
             },
           },
           exit: {
             opacity: 0,
             transition: {
-              duration: 0.3, // Much faster exit
+              duration: 0.6, // Slower exit
               ease: [0.25, 0.46, 0.45, 0.94],
             },
           },
