@@ -169,8 +169,8 @@ const Projects = ({ currentSection, setCurrentSection }) => {
     >
       <motion.div
         variants={containerVariants}
-          initial="hidden"
-          animate="visible"
+        initial="hidden"
+        animate="visible"
         style={{
           maxWidth: "1400px",
           margin: "0 auto",
@@ -372,7 +372,7 @@ const Projects = ({ currentSection, setCurrentSection }) => {
                         {tech}
                       </span>
                     ))}
-              </div>
+                  </div>
                 </motion.div>
 
                 {/* Links */}
@@ -389,8 +389,8 @@ const Projects = ({ currentSection, setCurrentSection }) => {
                   {project.chromeStore && (
                     <motion.a
                       href={project.chromeStore}
-                target="_blank"
-                rel="noopener noreferrer"
+                      target="_blank"
+                      rel="noopener noreferrer"
                       whileHover={{ scale: 1.05, y: -2 }}
                       whileTap={{ scale: 0.95 }}
                       style={{
@@ -422,8 +422,8 @@ const Projects = ({ currentSection, setCurrentSection }) => {
                   {project.devpost && (
                     <motion.a
                       href={project.devpost}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                      target="_blank"
+                      rel="noopener noreferrer"
                       whileHover={{ scale: 1.05, y: -2 }}
                       whileTap={{ scale: 0.95 }}
                       style={{
@@ -448,15 +448,15 @@ const Projects = ({ currentSection, setCurrentSection }) => {
                       >
                         <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
                       </svg>
-                  Devpost
+                      Devpost
                     </motion.a>
                   )}
 
                   {project.researchPaper && (
                     <motion.a
                       href={project.researchPaper}
-                target="_blank"
-                rel="noopener noreferrer"
+                      target="_blank"
+                      rel="noopener noreferrer"
                       whileHover={{ scale: 1.05, y: -2 }}
                       whileTap={{ scale: 0.95 }}
                       style={{
@@ -487,8 +487,8 @@ const Projects = ({ currentSection, setCurrentSection }) => {
 
                   <motion.a
                     href={project.github}
-                target="_blank"
-                rel="noopener noreferrer"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     whileHover={{ scale: 1.05, y: -2 }}
                     whileTap={{ scale: 0.95 }}
                     style={{
