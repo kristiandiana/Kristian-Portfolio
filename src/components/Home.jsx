@@ -2,6 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Typewriter } from "react-simple-typewriter";
 import { Person, CodeSlash, Link45deg, Briefcase } from "react-bootstrap-icons";
+import ParticlesComponent from "./ParticlesComponent";
 
 const Home = ({ currentSection, setCurrentSection }) => {
   const [isMobile, setIsMobile] = React.useState(window.innerWidth <= 768);
@@ -111,6 +112,19 @@ const Home = ({ currentSection, setCurrentSection }) => {
         justifyContent: "center",
       }}
     >
+      {/* Particles Background */}
+      <div
+        style={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          width: "100%",
+          height: "100%",
+          zIndex: 0,
+        }}
+      >
+        <ParticlesComponent id="tsparticles" />
+      </div>
       <motion.div
         variants={containerVariants}
         initial="hidden"
@@ -124,6 +138,8 @@ const Home = ({ currentSection, setCurrentSection }) => {
           gridTemplateRows: "repeat(4, 1fr)",
           gap: isMobile ? "4px" : "20px", // Even smaller gap on mobile
           padding: isMobile ? "8px" : "20px", // Add padding to the grid container instead
+          position: "relative",
+          zIndex: 1,
         }}
       >
         {/* Corner Buttons */}
